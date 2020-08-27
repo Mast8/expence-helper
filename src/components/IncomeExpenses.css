@@ -1,0 +1,37 @@
+.inc-exp-container {
+    /* background-color: #fff; */
+    /* box-shadow: var(--box-shadow); */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+  
+  .inc-exp-container > div {
+    flex: 1;
+    text-align: center;
+  }
+
+  .green {
+      color: #2ecc71;
+  }
+
+  .red {
+      color: #c0392b;
+  }
+
+  .money-plus {
+    text-align: center;
+    font-size: 2rem;
+    color: #2ecc71;
+  }
+  
+  .money-minus {
+    text-align: center;
+    font-size: 2rem;
+    color: #c0392b;
+  }
+  
+  /* .inc-exp-container > div:first-of-type {
+    border-right: 1px solid #dedede;
+  } */

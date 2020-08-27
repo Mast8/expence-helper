@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f7;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  /* font-family: "Baloo Da 2", serif; */
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  margin: 30px auto;
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.title {
+  text-align: center;
+  color: green;
+  font:  Impact, Charcoal, sans-serif
+}
+
+h3 {
+  /* border-bottom: 1px solid #bbb; */
+  padding-bottom: 10px;
+  margin: 20px 0 10px;
+  text-align: center;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.balance {
+  float: right;
+  width: 55%;
+  /* margin-left: 2rem; */
+  /* display: flex; */
+}
+
+
+.money {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+
+
+label {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+
+
+@media (max-width: 320px) {
+  .container {
+    width: 300px;
+  }
+}
