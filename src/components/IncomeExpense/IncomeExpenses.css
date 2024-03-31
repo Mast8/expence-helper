@@ -31,6 +31,10 @@
     font-size: 2rem;
     color: #c0392b;
   }
+
+  .income, .expense {
+    padding: 8px;
+  }
   
   /* .inc-exp-container > div:first-of-type {
     border-right: 1px solid #dedede;

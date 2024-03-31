@@ -21,10 +21,12 @@ body {
 }
 
 .container {
-  margin: 30px auto;
   width: 900px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+}
+.balance {
+  padding: 15px;
 }
 
 h1 {
