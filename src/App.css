@@ -51,14 +51,6 @@ h4 {
   text-align: center;
 }
 
-.balance {
-  float: right;
-  width: 55%;
-  /* margin-left: 2rem; */
-  /* display: flex; */
-}
-
-
 .money {
   font-size: 20px;
   letter-spacing: 1px;
@@ -72,10 +64,14 @@ label {
   margin: 10px 0;
 }
 
-
-
-@media (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .container {
-    width: 300px;
+
+    padding: 10px;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    width: 500px;
+
   }
 }
