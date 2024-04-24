@@ -39,5 +39,9 @@ form {
     padding: 15px;
 }
 
+.alert {
+    color: red;
+    font-weight: bold;
+}
 
   

@@ -36,18 +36,14 @@
   .income, .expense {
     padding: 8px;
     margin: 5px;
+    border-radius: 10px;
   }
 
   .income {
     background-color: #67a380;
-    border-radius: 10px;
   }
 
   .expense {
     background-color: rgb(192, 107, 98);
-    border-radius: 10px;
   }
   
-  /* .inc-exp-container > div:first-of-type {
-    border-right: 1px solid #dedede;
-  } */

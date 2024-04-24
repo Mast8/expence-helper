@@ -17,7 +17,7 @@ export const AddTransaction = () => {
   const onSubmit = e => {
     e.preventDefault();
 
-    if(text.trim() !== ""  ){
+    if(text.trim() !== "" && amount.trim() !== "" ){
       const newTransaction = {
         id: Math.floor(Math.random() * 100000000),
         text,
@@ -25,7 +25,8 @@ export const AddTransaction = () => {
       }
       addTransaction(newTransaction);
       clearFields();
-    }
+      setAlert("");
+    }else setAlert("Transaction or amount can not be empty");
    
   }
 
@@ -39,9 +40,9 @@ export const AddTransaction = () => {
     <>
       <form onSubmit={onSubmit}>
       <h3>Add transaction</h3>
-        <label htmlFor="text">{alert}</label>
+        <label htmlFor="text" className='alert'>{alert}</label>
         <div className="form-control">
-          <label htmlFor="text">Text</label>
+          <label htmlFor="text">Transaction</label>
           <input type="text" value={text} onChange={(e) => setText(e.target.value)} 
           placeholder="Enter text..." required />
         </div>
