@@ -8,16 +8,15 @@ export const AddTransaction = () => {
   const [amount, setAmount] = useState('');
 
   const { addTransaction } = useContext(GlobalContext);
-  const [alert, setAlert] = useState("");
-
-
+  const [errors,setErrors] = useState({});
 
 
 
   const onSubmit = e => {
     e.preventDefault();
 
-    if(text.trim() !== "" && amount.trim() !== "" ){
+    if(Validate(text)){
+     
       const newTransaction = {
         id: Math.floor(Math.random() * 100000000),
         text,
@@ -25,10 +24,26 @@ export const AddTransaction = () => {
       }
       addTransaction(newTransaction);
       clearFields();
-      setAlert("");
-    }else setAlert("Transaction or amount can not be empty");
+      
+    }
    
   }
+
+  function Validate(text){
+    const validationData ={};
+    if(text.trim() === "" )
+      validationData.text = "transaction is  empty";
+    else if(text.length < 3 ) {
+      validationData.text = "transaction needs at least three characters";
+    } else {
+      setErrors({});
+      return true;}
+    setErrors(validationData);
+  }
+
+  /* if validation 
+  create  
+  */
 
 
   const clearFields =() => {
@@ -40,18 +55,22 @@ export const AddTransaction = () => {
     <>
       <form onSubmit={onSubmit}>
       <h3>Add transaction</h3>
-        <label htmlFor="text" className='alert'>{alert}</label>
+        <span className='alert'>{errors.text}</span>
         <div className="form-control">
-          <label htmlFor="text">Transaction</label>
-          <input type="text" value={text} onChange={(e) => setText(e.target.value)} 
+          <label name="text">Transaction
+          
+          <input type="text" value={text} name='transaction' onChange={(e) => setText(e.target.value)} 
           placeholder="Enter text..." required />
+          </label>
         </div>
         <div className="form-control">
-          <label htmlFor="amount"
+          <label name="amount"
             >Amount <br />
-            (negative - expense, positive - income)</label>
-          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value.trim())} 
+            (negative - expense, positive - income)
+            
+          <input type="number" value={amount} name='amount' onChange={(e) => setAmount(e.target.value.trim())} 
           placeholder="Enter amount..." required />
+          </label>
         </div>
         <button className="btn">Add transaction</button>
       </form>
