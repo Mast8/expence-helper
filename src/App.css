@@ -41,8 +41,8 @@ h1 {
 }
 
 h3 {
-  /* border-bottom: 1px solid #bbb; */
-  padding-bottom: 10px;
+  border-bottom: 1px solid #bbb;
+
   margin: 20px 0 10px;
   text-align: center;
 }
