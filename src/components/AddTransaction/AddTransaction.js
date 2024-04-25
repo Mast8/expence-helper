@@ -16,7 +16,6 @@ export const AddTransaction = () => {
     e.preventDefault();
 
     if(Validate()){
-     console.log("yes")
       const newTransaction = {
         id: Math.floor(Math.random() * 100000000),
         text,
@@ -24,7 +23,6 @@ export const AddTransaction = () => {
       }
       addTransaction(newTransaction);
       clearFields();
-      
     }
    
   }
@@ -34,9 +32,9 @@ export const AddTransaction = () => {
     
     // text validation
     if(text.trim() === "" )
-      validationData.text = `${text}transaction is  empty`;
+      validationData.text = `transaction is empty`;
     else if(text.trim().length < 3 ) 
-            validationData.text = "transaction needs at least three characters";
+            validationData.text = "Transaction needs at least three characters";
           
 
     // amount validation
@@ -86,10 +84,9 @@ export const AddTransaction = () => {
             >Amount <br />
             (negative - expense, positive - income)
             
-          <input value={amount} name="amount" onChange={(e) => setAmount(e.target.value.trim())} 
-          placeholder="Enter amount..."  />
-          {/* <input type="number" value={amount} name='amount' onChange={(e) => setAmount(e.target.value.trim())} 
-          placeholder="Enter amount..." required /> */}
+          
+          <input type="number" value={amount} name='amount' onChange={(e) => setAmount(e.target.value.trim())} 
+          placeholder="Enter amount..." required />
           </label>
         </div>
         <button className="btn">Add transaction</button>
