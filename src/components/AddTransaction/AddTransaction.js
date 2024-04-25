@@ -35,17 +35,20 @@ export const AddTransaction = () => {
     // text validation
     if(text.trim() === "" )
       validationData.text = `${text}transaction is  empty`;
-    else if(text.trim().length < 3 ) {
+    else if(text.trim().length < 3 ) 
             validationData.text = "transaction needs at least three characters";
-         } else setErrorsMessage({});
+          
 
     // amount validation
-    if(amount.trim() ==="")
+    console.log(amount);
+    if( amount.trim() === "" || amount.trim() == 0 || amount.trim() === " " )
       validationData.amount = `Amount is  empty`;
-    else var numberRegex = /^\s*[+-]?(\d+|\d*\.\d+|\d+\.\d*)([Ee][+-]?\d+)?\s*$/;
+    else { 
+      var numberRegex = /^\s*[+-]?(\d+|\d*\.\d+|\d+\.\d*)([Ee][+-]?\d+)?\s*$/;
       if(!numberRegex.test(amount))
         validationData.amount = `Amount has to be a number`;
-      else setErrorsMessage({});
+    }
+
     
     //if no errors return true
     if(Object.keys(validationData).length === 0){
