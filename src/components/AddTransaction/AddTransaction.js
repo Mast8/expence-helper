@@ -8,15 +8,15 @@ export const AddTransaction = () => {
   const [amount, setAmount] = useState('');
 
   const { addTransaction } = useContext(GlobalContext);
-  const [errors,setErrors] = useState({});
+  const [errorsMessage,setErrorsMessage] = useState({});
 
 
 
   const onSubmit = e => {
     e.preventDefault();
 
-    if(Validate(text)){
-     
+    if(Validate()){
+     console.log("yes")
       const newTransaction = {
         id: Math.floor(Math.random() * 100000000),
         text,
@@ -29,22 +29,33 @@ export const AddTransaction = () => {
    
   }
 
-  function Validate(text){
+  function Validate(){
     const validationData ={};
+    
+    // text validation
     if(text.trim() === "" )
-      validationData.text = "transaction is  empty";
-    else if(text.length < 3 ) {
-      validationData.text = "transaction needs at least three characters";
-    } else {
-      setErrors({});
-      return true;}
-    setErrors(validationData);
+      validationData.text = `${text}transaction is  empty`;
+    else if(text.trim().length < 3 ) {
+            validationData.text = "transaction needs at least three characters";
+         } else setErrorsMessage({});
+
+    // amount validation
+    if(amount.trim() ==="")
+      validationData.amount = `Amount is  empty`;
+    else var numberRegex = /^\s*[+-]?(\d+|\d*\.\d+|\d+\.\d*)([Ee][+-]?\d+)?\s*$/;
+      if(!numberRegex.test(amount))
+        validationData.amount = `Amount has to be a number`;
+      else setErrorsMessage({});
+    
+    //if no errors return true
+    if(Object.keys(validationData).length === 0){
+      setErrorsMessage({});
+      return true;
+    }else {
+      setErrorsMessage(validationData);
+      return false;
+    }
   }
-
-  /* if validation 
-  create  
-  */
-
 
   const clearFields =() => {
     setText("");
@@ -55,11 +66,15 @@ export const AddTransaction = () => {
     <>
       <form onSubmit={onSubmit}>
       <h3>Add transaction</h3>
-        <span className='alert'>{errors.text}</span>
+        <div className='messages'>
+          <span className='alert'>{errorsMessage.text}</span>
+          <span className='alert'>{errorsMessage.amount}</span>
+        </div>
+        
         <div className="form-control">
           <label name="text">Transaction
           
-          <input type="text" value={text} name='transaction' onChange={(e) => setText(e.target.value)} 
+          <input type="text" value={text} name="transaction" onChange={(e) => setText(e.target.value)} 
           placeholder="Enter text..." required />
           </label>
         </div>
@@ -68,8 +83,10 @@ export const AddTransaction = () => {
             >Amount <br />
             (negative - expense, positive - income)
             
-          <input type="number" value={amount} name='amount' onChange={(e) => setAmount(e.target.value.trim())} 
-          placeholder="Enter amount..." required />
+          <input value={amount} name="amount" onChange={(e) => setAmount(e.target.value.trim())} 
+          placeholder="Enter amount..."  />
+          {/* <input type="number" value={amount} name='amount' onChange={(e) => setAmount(e.target.value.trim())} 
+          placeholder="Enter amount..." required /> */}
           </label>
         </div>
         <button className="btn">Add transaction</button>

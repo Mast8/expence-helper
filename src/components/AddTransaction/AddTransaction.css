@@ -39,9 +39,16 @@ form {
     padding: 15px;
 }
 
+.messages {
+    display: flex;
+    flex-direction: column;
+}
+
 .alert {
     color: red;
     font-weight: bold;
 }
+
+
 
   
