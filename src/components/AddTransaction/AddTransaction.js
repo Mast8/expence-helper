@@ -29,7 +29,7 @@ export const AddTransaction = () => {
 
   function Validate(){
     const validationData ={};
-    
+    let validated = false;
     // text validation
     if(text.trim() === "" )
       validationData.text = `transaction is empty`;
@@ -39,7 +39,7 @@ export const AddTransaction = () => {
 
     // amount validation
     console.log(amount);
-    if( amount.trim() === "" || amount.trim() == 0 || amount.trim() === " " )
+    if( amount.trim() === "" )
       validationData.amount = `Amount is  empty`;
     else { 
       var numberRegex = /^\s*[+-]?(\d+|\d*\.\d+|\d+\.\d*)([Ee][+-]?\d+)?\s*$/;
@@ -51,11 +51,12 @@ export const AddTransaction = () => {
     //if no errors return true
     if(Object.keys(validationData).length === 0){
       setErrorsMessage({});
-      return true;
+      validated =  true;
     }else {
       setErrorsMessage(validationData);
-      return false;
+      
     }
+    return validated;
   }
 
   const clearFields =() => {
