@@ -1,5 +1,12 @@
 
 
+.form-control {
+    padding: 10px;
+}
+
+
+
+
 input[type='text'],
 input[type='number'] {
   border: 1px solid #dedede;

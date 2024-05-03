@@ -32,7 +32,7 @@ export const AddTransaction = () => {
     let validated = false;
     // text validation
     if(text.trim() === "" )
-      validationData.text = `transaction is empty`;
+      validationData.text = `Transaction is empty`;
     else if(text.trim().length < 3 ) 
             validationData.text = "Transaction needs at least three characters";
           
@@ -40,7 +40,7 @@ export const AddTransaction = () => {
     // amount validation
     console.log(amount);
     if( amount.trim() === "" )
-      validationData.amount = `Amount is  empty`;
+      validationData.amount = `Amount is empty`;
     else { 
       var numberRegex = /^\s*[+-]?(\d+|\d*\.\d+|\d+\.\d*)([Ee][+-]?\d+)?\s*$/;
       if(!numberRegex.test(amount))
@@ -74,20 +74,15 @@ export const AddTransaction = () => {
         </div>
         
         <div className="form-control">
-          <label name="text">Transaction
-          
-          <input type="text" value={text} name="transaction" onChange={(e) => setText(e.target.value)} 
-          placeholder="Enter text..." required />
+          <label name="text"  >Transaction
+            <input type="text" id="transaction" value={text} name="transaction" onChange={(e) => setText(e.target.value)} 
+            placeholder="Enter text..." required />
           </label>
         </div>
         <div className="form-control">
-          <label name="amount"
-            >Amount <br />
-            (negative - expense, positive - income)
-            
-          
-          <input type="number" value={amount} name='amount' onChange={(e) => setAmount(e.target.value.trim())} 
-          placeholder="Enter amount..." required />
+          <label name="amount" >Amount (negative - expense, positive - income) 
+            <input type="number" id="amount"  value={amount} name='amount' onChange={(e) => setAmount(e.target.value.trim())} 
+            placeholder="Enter amount..." required />
           </label>
         </div>
         <button className="btn">Add transaction</button>

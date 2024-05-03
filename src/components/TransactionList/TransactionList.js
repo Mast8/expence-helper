@@ -10,6 +10,7 @@ export const TransactionList = () => {
   const incomes = transactions.filter(e => e.amount > 0);
   const expenses = transactions.filter(e => e.amount < 0);
 
+
   return (
     <>
      <h3>Transactions</h3>
